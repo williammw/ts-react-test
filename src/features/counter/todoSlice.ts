@@ -6,11 +6,11 @@ export interface Todo{
   isDone:boolean,
 }
 
-interface TodoSlice {
+interface TodoState {
   todos:Array<Todo>;
 }
 
-const initialState: TodoSlice = {
+const initialState: TodoState = {
   todos: [],
 };
 
