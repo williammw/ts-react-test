@@ -1,20 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../../app/store';
 
+export interface Todo{
+  title:string,
+  isDone:boolean,
+}
+
 interface TodoSlice {
-  value: number;
+  todos:Array<Todo>;
 }
 
 const initialState: TodoSlice = {
-  value: 0,
+  todos: [],
 };
 
 export const todoSlice = createSlice({
-  name: 'todo',
+  name: 'user',
   initialState,
   reducers: {   
-    addATodo: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    addATodo: (state, action: PayloadAction<Todo>) => {
+      state.todos = [...state.todos, action.payload];
     },
   },
 });
